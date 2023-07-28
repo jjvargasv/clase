@@ -1,0 +1,60 @@
+<form
+  class="form form-product"
+  [formGroup]="productForm"
+  (ngSubmit)="createProduct()"
+  autocomplete="off"
+>
+  <h2>Productos</h2>
+  <p>Registra nuevos productos. Diligencia cada uno de los campos según sean requeridos.</p>
+  <div class="field">
+    <label for="name">Nombre*</label>
+    <input
+      id="name"
+      class="input-field"
+      type="text"
+      formControlName="name"
+      placeholder="Nombre del Producto"
+    />
+  </div>
+  <div class="field">
+    <label for="image">Imagen</label>
+    <input
+      id="image"
+      class="input-field"
+      type="text"
+      formControlName="image"
+      placeholder="imagen"
+    />
+  </div>
+  <div class="field">
+    <label for="description">descripcion*</label>
+    <input
+      id="description"
+      class="input-field"
+      type="text"
+      formControlName="description"
+      placeholder="Cantidad disponible del Producto"
+    />
+  </div>
+  <div class="field">
+    <label for="category">Categoria</label>
+    <select
+      id="category"
+      class="input-field"
+      formControlName="category"
+    >
+      <option value="">Seleccione...</option>
+      <option
+        *ngFor="let category of categories"
+        value="{{ category._id }}"
+      >{{ category.name }}</option>
+    </select>
+  </div>
+  
+  <div class="field">
+    <button
+      type="submit"
+      [disabled]="this.productForm.invalid"
+    >Crear Producto</button>
+  </div>
+</form>

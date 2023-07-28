@@ -1,0 +1,25 @@
+
+<form 
+[formGroup]="categoryForm"
+(click)="createOrUpdate()"
+>
+    <label for="">Nombre de categoria</label>
+    <input type="text" formControlName="name" >
+    <label for="">Descripcion</label>
+    <textarea formControlName = "description" id="" cols="30" rows="10"></textarea>
+    <button type="submit">Send</button>
+</form>
+
+<ng-container *ngIf="categories && categories.length > 0; then categoryList; else noCategories">
+    
+</ng-container>
+<ng-template #categoryList>
+    <ul>
+        <li *ngFor="let category of categories">
+            {{category.name}}
+            <button  (click)="loadData(category)" >Editar</button>
+            <button  (click)="eliminarCategory(category._id)">Eliminar</button>
+        </li>
+    </ul>
+</ng-template>
+<ng-template #noCategories>No hay categoriass</ng-template>
