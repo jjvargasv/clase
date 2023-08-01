@@ -14,7 +14,7 @@ export const validateTokenGuard: CanActivateFn = (route, state) => {
     .pipe(
       tap( valid => {
         if( ! valid ) {
-          router.navigate([ '/auth/login' ])
+          router.navigate([ '/' ])
         }
       })
     );

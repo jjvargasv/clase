@@ -77,5 +77,12 @@ export class ProductsService {
       { headers: this.headers }                         // Cabeceras con información requerida
     );
   }
-
+  getAllProducts() {
+    return this.http.get<ProductResponse>(
+      `${ this.BASE_URL }/products`   // URL del BackEnd al que debemos hacer la peticion                   
+    ).pipe(
+      tap( ( console.log ) ),
+      map( response => response.products )
+    );
+  }
 }

@@ -1,13 +1,13 @@
 
 <form 
 [formGroup]="categoryForm"
-(click)="createOrUpdate()"
+(ngSubmit)="createOrUpdate()"
 >
     <label for="">Nombre de categoria</label>
     <input type="text" formControlName="name" >
     <label for="">Descripcion</label>
     <textarea formControlName = "description" id="" cols="30" rows="10"></textarea>
-    <button type="submit">Send</button>
+    <button type="submit">{{this.categorySelected ? 'Actualizar' : 'Crear'}}</button>
 </form>
 
 <ng-container *ngIf="categories && categories.length > 0; then categoryList; else noCategories">

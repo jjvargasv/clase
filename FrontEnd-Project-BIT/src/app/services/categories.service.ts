@@ -15,12 +15,12 @@ export class CategoriesService {
   constructor(private http: HttpClient) { 
     const token =localStorage.getItem('token') 
     this.token = token ? token : '';
-    this.headers = new HttpHeaders().set('X-Token', this.token)
+    this.headers = new HttpHeaders().set('X-Token', `${this.token}`);
   }
   createCategory(category: Category){
    return this.http.post(`${this.BASEURL}/categories`, category, {headers: this.headers})
   }
-  updateCategory(category: Category){
+  updateCategory(category: any){
     return this.http.patch(
       `${this.BASEURL}/categories/${category._id}`, category, {headers: this.headers}
     )
