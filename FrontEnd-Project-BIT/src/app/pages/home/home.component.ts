@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
         total: product.price,
         UrlImage: product.urlImage,
         describe: product.description,
-        available: product.quantity,
+        stock: product.quantity,
         quantity: 1,
       });
     }

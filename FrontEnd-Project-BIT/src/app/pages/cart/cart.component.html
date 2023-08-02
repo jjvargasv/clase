@@ -45,15 +45,15 @@
     
             </div>
             <div class="card-quantity">
-                <button>-</button>
+                <button (click)="subtractQuantity(product)">-</button>
                 <span class="card__quantity">1</span>
-                <button>+</button>
+                <button (click)="addQuantity(product)">+</button>
             </div>
             <div class="card-total">
                 <span class="card__total">{{2|currency}}</span>
             </div>
             <div class="card-actions">
-                <button>x</button>
+                <button (click)="removeToCart(product._id)">x</button>
             </div>
             <div class="card__arrow">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="15" width="15">
