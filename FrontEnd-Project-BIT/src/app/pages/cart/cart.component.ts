@@ -16,23 +16,20 @@ export class CartComponent implements OnInit {
   }
 
   subtractQuantity(product: any) {
-  
-    // TODO pendiente por resolver
-    
-   /*  this.cart = this.cart.map((item) => {
-      if (item._id === product._id) {
-        if (item.quantity > 0) {
-          item.quantity -= 1;
-          item.total = item.price * item.quantity;
+    this.cart = this.cart
+      .map((item) => {
+        if (item._id === product._id) {
+          if (item.quantity > 0) {
+            item.quantity -= 1;
+            item.total = item.price * item.quantity;
+          }
         }
-      }
-     
-      
-      return item;
-    })
-     */
+        return item;
+      })
+      .filter((item) => item.quantity > 0);
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }
+
   addQuantity(product: any) {
     this.cart = this.cart.map((item) => {
       if (item._id === product._id) {
