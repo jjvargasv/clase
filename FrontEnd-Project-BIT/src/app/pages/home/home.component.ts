@@ -48,4 +48,6 @@ export class HomeComponent implements OnInit {
     console.log(this.cart);
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }
+
+ 
 }

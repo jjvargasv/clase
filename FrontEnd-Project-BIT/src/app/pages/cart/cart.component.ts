@@ -48,4 +48,17 @@ export class CartComponent implements OnInit {
     });
     localStorage.setItem('cart', JSON.stringify(this.cart));
   }
+  totalPrice() {
+    const prices = this.cart.map((item) => {
+      return item.total;
+    });
+    console.log(prices);
+
+    const initialValue = 0;
+    const sumWithInitial = prices.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      initialValue
+    );
+    return sumWithInitial;
+  }
 }

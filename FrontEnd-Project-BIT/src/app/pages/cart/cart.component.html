@@ -46,15 +46,17 @@
             </div>
             <div class="card-quantity">
                 <button (click)="subtractQuantity(product)">-</button>
-                <span class="card__quantity">1</span>
+                <span class="card__quantity">{{product.quantity}}</span>
                 <button (click)="addQuantity(product)">+</button>
             </div>
             <div class="card-total">
-                <span class="card__total">{{2|currency}}</span>
+                <span class="card__total">{{product.total|currency}}</span>
             </div>
             <div class="card-actions">
                 <button (click)="removeToCart(product._id)">x</button>
             </div>
+            
+
             <div class="card__arrow">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" height="15" width="15">
                     <path fill="#fff"
@@ -63,8 +65,16 @@
                 </svg>
             </div>
         </div>
+        
     </div>
 
+    <div class="card-info">
+                <h3 class="card__title">Total:{{totalPrice()|currency}}
+
+                </h3>
+                <!-- <p class="card__content">{{product.describe}} </p> -->
+    
+            </div>
 </ng-template>
 <ng-template #noList>No hay productos</ng-template>
 
